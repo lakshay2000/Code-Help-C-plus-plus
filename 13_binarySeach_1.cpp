@@ -53,6 +53,7 @@ int main()
 {
     int even[5]={1,2,3,3,5};
     cout<<firstOccurence(even,5,3)<<endl;
-    cout<<lastOccurence(even,5,3);
+    cout<<lastOccurence(even,5,3)<<endl;
+    cout<<"Total no. of occurences are - "<<lastOccurence(even,5,3)-firstOccurence(even,5,3)+1<<endl;
     return 0;
 }
