@@ -26,5 +26,7 @@ int main()
     reverse(abc.begin(),abc.end());
     cout<<abc;
 
+
+
     return 0;
 }
