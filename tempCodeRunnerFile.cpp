@@ -1,3 +1,1 @@
- for(int i:d){
-        cout<<i<<" ";
-    }
+i
