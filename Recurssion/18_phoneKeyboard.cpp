@@ -36,6 +36,7 @@ public:
     {
 
         vector<string> ans;
+
         if (digits.length() == 0)
         {
             return ans;
@@ -45,6 +46,7 @@ public:
         string mapping[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
         solve(digits, ans, output, index, mapping);
+
         return ans;
     }
 };
@@ -59,11 +61,6 @@ int main()
 
     vector<string> chi;
 
-    chi = s.letterCombinations(ch);
-
-    for (auto i : chi)
-    {
-        cout << i;
-    }
+    s.letterCombinations(ch);
     return 0;
 }
