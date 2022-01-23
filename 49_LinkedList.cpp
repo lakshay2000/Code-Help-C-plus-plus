@@ -1,5 +1,8 @@
 #include <iostream>
 using namespace std;
+
+// Linked Lists is a dynamic DS and it can grow/shrink at runtime and no memory wastage and insertion/deletion is easy (i.e. no shifting needed)
+
 class node
 {
 
