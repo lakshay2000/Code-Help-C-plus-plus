@@ -121,6 +121,26 @@ void print(Node *&head)
     cout << endl;
 }
 
+bool isCircular(Node *head)
+{
+    if (head == NULL)
+    {
+        return true;
+    }
+
+    Node *temp = head->next;
+    while (temp != NULL && temp != head)
+    {
+        temp = temp->next;
+    }
+    if (temp == head)
+    {
+        return true;
+    }
+
+    return false;
+}
+
 int main()
 {
 
@@ -153,5 +173,14 @@ int main()
     cout << "Head " << head->data << endl;
     cout << "Tail " << tail->data << endl;
 
+    print(head);
+    if (isCircular(head))
+    {
+        cout << "CIrcular hai";
+    }
+    else
+    {
+        cout << "Nhi hai";
+    }
     return 0;
 }
