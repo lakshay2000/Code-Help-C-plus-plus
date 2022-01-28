@@ -161,11 +161,11 @@ bool detectLoop(Node *head)
 // if slow == fast then cycle would be present
 // if fast= NULL then no cycle is present
 
-bool floydDetectLoop(Node *head)
+Node *floydDetectLoop(Node *head)
 {
     if (head == NULL)
     {
-        return false;
+        return NULL;
     }
     Node *slow = head;
     Node *fast = head;
@@ -182,10 +182,45 @@ bool floydDetectLoop(Node *head)
         if (slow == fast)
         {
             cout << "present at bhai " << slow->data << endl;
-            return 1;
+            return slow;
         }
     }
-    return 0;
+    return NULL;
+}
+
+Node *getStartingNode(Node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+
+    Node *intersection = floydDetectLoop(head);
+    Node *slow = head;
+
+    while (slow != intersection)
+    {
+        slow = slow->next;
+        intersection = intersection->next;
+    }
+
+    return slow;
+}
+
+void removeLoop(Node *head)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+
+    Node *start = getStartingNode(head);
+    Node *temp = start;
+    while (temp->next != start)
+    {
+        temp = temp->next;
+    }
+    temp->next = NULL;
 }
 
 int main()
@@ -230,5 +265,11 @@ int main()
         cout << "Loop nhi hai bhai" << endl;
     }
 
+    Node *loop = getStartingNode(tail);
+    cout << "Loop starting at " << loop->data << endl;
+
+    removeLoop(tail);
+
+    print(tail);
     return 0;
 }
