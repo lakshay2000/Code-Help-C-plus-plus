@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 // Linked Lists is a dynamic DS and it can grow/shrink at runtime and no memory wastage and insertion/deletion is easy (i.e. no shifting needed)
@@ -138,6 +139,57 @@ node *reverseRecursive(node *&head)
     return newhead;
 }
 
+bool detectLoop(node *head)
+{
+    if (head == NULL)
+    {
+        return false;
+    }
+
+    map<node *, bool> visited;
+
+    node *temp = head;
+    while (temp != NULL)
+    {
+
+        // cycle is present
+        if (visited[temp] == true)
+        {
+            return 1;
+        }
+        visited[temp] = true;
+        temp = temp->next;
+    }
+
+    return false;
+}
+
+node *floydDetectLoop(node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+    node *slow = head;
+    node *fast = head;
+
+    while (slow != NULL && fast != NULL)
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+
+        if (slow == fast)
+        {
+            return slow;
+        }
+    }
+    return NULL;
+}
+
 int main()
 {
 
@@ -170,6 +222,24 @@ int main()
     // iterative way of reversing a linkedlist
     node *newhead = reverseRecursive(head);
     display(newhead);
+
+    if (detectLoop(head))
+    {
+        cout << "Loop hai" << endl;
+    }
+    else
+    {
+        cout << "Loop nhi hai" << endl;
+    }
+
+    if (floydDetectLoop(head) != NULL)
+    {
+        cout << "Loop hai bhai" << endl;
+    }
+    else
+    {
+        cout << "Loop nhi hai bhai" << endl;
+    }
 
     return 0;
 }

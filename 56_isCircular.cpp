@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 using namespace std;
 class Node
 {
@@ -126,6 +127,67 @@ bool isCircular(Node *head)
     return false;
 }
 
+// TC- O(n);
+// SC-O(n);
+bool detectLoop(Node *head)
+{
+    if (head == NULL)
+    {
+        return false;
+    }
+
+    map<Node *, bool> visited;
+
+    Node *temp = head;
+    while (temp != NULL)
+    {
+
+        // cycle is present
+        if (visited[temp] == true)
+        {
+            cout << "Loop Present at " << temp->data << endl;
+            return 1;
+        }
+        visited[temp] = true;
+        temp = temp->next;
+    }
+
+    return false;
+}
+
+// Floyed's cycle detection algorithm
+// TC-O(N);
+// SC-O(1);
+// if slow == fast then cycle would be present
+// if fast= NULL then no cycle is present
+
+bool floydDetectLoop(Node *head)
+{
+    if (head == NULL)
+    {
+        return false;
+    }
+    Node *slow = head;
+    Node *fast = head;
+
+    while (slow != NULL && fast != NULL)
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+
+        if (slow == fast)
+        {
+            cout << "present at bhai " << slow->data << endl;
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
 
@@ -144,11 +206,29 @@ int main()
     int an = isCircular(tail);
     if (an)
     {
-        cout << "Circular h bhai";
+        cout << "Circular h bhai" << endl;
     }
     else
     {
-        cout << "nhi hai";
+        cout << "nhi hai" << endl;
     }
+
+    if (detectLoop(tail))
+    {
+        cout << "Loop hai" << endl;
+    }
+    else
+    {
+        cout << "Loop nhi hai" << endl;
+    }
+    if (floydDetectLoop(tail))
+    {
+        cout << "Loop hai bhai" << endl;
+    }
+    else
+    {
+        cout << "Loop nhi hai bhai" << endl;
+    }
+
     return 0;
 }
