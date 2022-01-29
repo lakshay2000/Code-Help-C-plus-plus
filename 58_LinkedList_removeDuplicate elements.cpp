@@ -16,6 +16,7 @@
     };
 
 ************************************************************/
+// removing duplicate elements from sorted lists
 
 Node *uniqueSortedList(Node *head)
 {
