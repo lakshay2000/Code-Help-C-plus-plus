@@ -16,6 +16,7 @@
 // removing duplicate elements from unsorted lists
 
 // TC - O(n ^ 2);
+// SC-O(1)
 Node *removeDuplicates(Node *head)
 {
     // Write your code here
@@ -43,6 +44,49 @@ Node *removeDuplicates(Node *head)
             }
         }
         curr = curr->next;
+    }
+    return head;
+}
+
+// TC - O(n);
+// SC-O(n)
+/****************************************************************
+    Following is the class structure of the Node class:
+    class Node
+    {
+    public:
+        int data;
+        Node *next;
+        Node(int data)
+        {
+            this->data = data;
+            this->next = NULL;
+        }
+    };
+*****************************************************************/
+#include <bits/stdc++.h>
+
+Node *removeDuplicates(Node *head)
+{
+    // Write your code here
+    Node *curr = head;
+    Node *prev = NULL;
+    unordered_map<int, int> visited;
+
+    while (curr != NULL)
+    {
+        if (!visited[curr->data])
+        {
+            visited[curr->data] = 1;
+            prev = curr;
+            //             curr = curr -> next;
+        }
+        else
+        {
+            prev->next = curr->next;
+            delete curr;
+        }
+        curr = prev->next;
     }
     return head;
 }
