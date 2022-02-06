@@ -13,6 +13,9 @@
     };
 
 ********************************************************************/
+
+// Why Prefer merge sort in LL and quick sort in arrays 
+
 node *findMid(node *head)
 {
     node *slow = head;
