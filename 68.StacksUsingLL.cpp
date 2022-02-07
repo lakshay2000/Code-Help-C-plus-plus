@@ -22,6 +22,7 @@ void push(int x)
     Node *n = new Node(x);
     n->next = top;
     top = n;
+    size++;
 }
 
 bool isEmpty()
@@ -83,9 +84,9 @@ void display()
 int main()
 {
 
-    // push(22);
-    // push(33);
-    // push(44);
+    push(22);
+    push(33);
+    push(44);
 
     display();
     cout << endl;
@@ -103,5 +104,6 @@ int main()
     {
         cout << "LL is not empty" << endl;
     }
+    cout << size << endl;
     return 0;
 }
