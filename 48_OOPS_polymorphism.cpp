@@ -64,23 +64,23 @@ public:
 int main()
 {
 
-    // A obj;
+    A obj;
 
-    // obj.sayHello();
-    // obj.sayHello("Lakshay Banga");
+    obj.sayHello();
+    obj.sayHello("Lakshay Banga");
 
-    // A obj1, obj2;
+    A obj1, obj2;
 
-    // obj1.a = 3;
-    // obj2.a = 8;
+    obj1.a = 3;
+    obj2.a = 8;
 
-    // obj1 + obj2;
+    obj1 + obj2;
 
-    // obj1();
+    obj1();
 
     // Function Overriding
-    Dog obj;
+    Dog objm;
 
-    obj.speak();
+    objm.speak();
     return 0;
 }

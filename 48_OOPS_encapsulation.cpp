@@ -15,7 +15,7 @@ class Student
 
 private:
     string name;
-    int age = 5;
+    int age;
     int height;
 
 public:
