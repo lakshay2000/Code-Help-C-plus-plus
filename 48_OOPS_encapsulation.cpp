@@ -15,7 +15,7 @@ class Student
 
 private:
     string name;
-    int age;
+    int age = 5;
     int height;
 
 public:
@@ -29,6 +29,7 @@ int main()
 {
 
     Student first;
+    cout << first.getage();
 
     return 0;
 }
