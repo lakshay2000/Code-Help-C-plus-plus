@@ -14,6 +14,7 @@ int calculate(int a, int b)
 
     int ans = calculate(a, b / 2);
 
+    // If bis even
     if (b & 1)
     {
         return ans * ans;

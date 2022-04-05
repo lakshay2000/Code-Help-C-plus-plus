@@ -1,33 +1,39 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// Function to print all sub strings
-void subString(string str, int n)
+class Solution
 {
-    // Pick starting point
-    for (int len = 1; len <= n; len++)
+
+private:
+    void solve(vector<int> nums, vector<int> output, int index, vector<vector<int>> &ans)
     {
-        // Pick ending point
-        for (int i = 0; i <= n - len; i++)
+        if (index >= nums.size())
         {
-            //  Print characters from current
-            // starting point to current ending
-            // point.
-            int j = i + len - 1;
-            for (int k = i; k <= j; k++)
-                cout << str[k];
-
-            cout << endl;
+            ans.push_back(output);
+            return;
         }
+
+        // exclude
+
+        solve(nums, output, index + 1, ans);
+
+        // include
+
+        int element = nums[index];
+
+        output.push_back(element);
+
+        solve(nums, output, index + 1, ans);
     }
-}
 
-// Driver program to test above function
-int main()
-{
-    string str;
-    cin >> str;
+public:
+    vector<vector<int>> subsets(vector<int> &nums)
+    {
+        vector<vector<int>> ans;
 
-    subString(str, str.length());
-    return 0;
-}
+        vector<int> output;
+
+        int index = 0;
+
+        solve(nums, output, index, ans);
+
+        return ans;
+    }
+};

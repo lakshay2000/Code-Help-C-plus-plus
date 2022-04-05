@@ -1,15 +1,6 @@
 #include <iostream>
 using namespace std;
 
-void print(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
 void sortArray(int *arr, int n)
 {
     if (n == 1 || n == 0)
@@ -25,8 +16,8 @@ void sortArray(int *arr, int n)
         }
     }
 
-    print(arr, n);
     sortArray(arr, n - 1);
+    // print(arr, n);
 }
 
 int main()
