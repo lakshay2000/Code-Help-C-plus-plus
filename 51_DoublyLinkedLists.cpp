@@ -148,10 +148,11 @@ void deleteNode(int position, Node *&head, Node *&tail)
             curr->prev = NULL;
             tail = prev;
             delete curr;
+            return;
         }
         curr->prev = NULL;
         prev->next = curr->next;
-        // curr->next->prev = prev;
+        curr->next->prev = prev;
         curr->next = NULL;
 
         delete curr;
@@ -180,7 +181,7 @@ int main()
     insertAtPosition(tail, head, 6, 9);
     print(head);
 
-    deleteNode(7, head, tail);
+    deleteNode(5, head, tail);
     print(head);
 
     cout << head->data << " ";

@@ -77,7 +77,7 @@ void insertatPosition(int position, int d, Node *&head, Node *&tail)
     temp->next = nodeToinsert;
 }
 
-void deleteNode(int position, Node *&head)
+void deleteNode(int position, Node *&head, Node *&tail)
 {
     if (position == 1)
     {
@@ -102,7 +102,18 @@ void deleteNode(int position, Node *&head)
             current = current->next;
             cnt++;
         }
-        prev->next = current->next;
+
+        if (current->next == NULL)
+        {
+            prev->next = current->next;
+
+            tail = prev;
+        }
+        else
+        {
+            prev->next = current->next;
+        }
+
         current->next = NULL;
         delete current;
     }
@@ -168,7 +179,7 @@ int main()
     cout << "Head " << head->data << endl;
     cout << "Tail " << tail->data << endl;
 
-    deleteNode(5, head);
+    deleteNode(5, head, tail);
     print(head);
     cout << "Head " << head->data << endl;
     cout << "Tail " << tail->data << endl;

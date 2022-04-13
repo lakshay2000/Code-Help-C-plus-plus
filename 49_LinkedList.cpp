@@ -18,26 +18,6 @@ public:
     }
 };
 
-void insertAtTail(node *&head, int val)
-{
-
-    node *n = new node(val);
-
-    if (head == NULL)
-    {
-        head = n;
-        return;
-    }
-
-    node *temp = head;
-
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = n;
-}
-
 void insertAtHead(node *&head, int val)
 {
     node *n = new node(val);
@@ -57,6 +37,26 @@ void display(node *head)
         temp = temp->next;
     }
     cout << "NULL" << endl;
+}
+
+void insertAtTail(node *&head, int val)
+{
+
+    node *n = new node(val);
+
+    if (head == NULL)
+    {
+        head = n;
+        return;
+    }
+
+    node *temp = head;
+
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = n;
 }
 
 bool search(node *head, int key)

@@ -78,6 +78,7 @@ void deleteNode(int value, Node *&tail)
         if (curr == prev)
         {
             tail = NULL;
+            return;
         }
         else if (tail == curr)
         {
@@ -115,10 +116,10 @@ int main()
     // insertNode(tail, 3, 5);
     // insertNode(tail, 5, 9);
     // insertNode(tail, 9, 7);
-    // print(tail);
+    print(tail);
     deleteNode(3, tail);
     print(tail);
 
-    cout << "Tail = " << tail->data << endl;
+    // cout << "Tail = " << tail->data << endl;
     return 0;
 }
