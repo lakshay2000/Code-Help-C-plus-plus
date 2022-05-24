@@ -81,6 +81,8 @@ int main()
     // Function Overriding
     Dog objm;
 
+    objm.Animal::speak();
+
     objm.speak();
     return 0;
 }

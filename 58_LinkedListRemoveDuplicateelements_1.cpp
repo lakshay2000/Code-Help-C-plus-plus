@@ -48,8 +48,6 @@ Node *removeDuplicates(Node *head)
     return head;
 }
 
-// TC - O(n);
-// SC-O(n)
 /****************************************************************
     Following is the class structure of the Node class:
     class Node
@@ -66,6 +64,8 @@ Node *removeDuplicates(Node *head)
 *****************************************************************/
 #include <bits/stdc++.h>
 
+// TC - O(n);
+// SC-O(n)
 Node *removeDuplicates(Node *head)
 {
     // Write your code here
